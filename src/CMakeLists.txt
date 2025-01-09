@@ -12,3 +12,6 @@ target_link_libraries(mainTest_exe
 PRIVATE gtest::gtest
 bullethellLib
 )
+target_link_libraries(mainwindow_exe PUBLIC sfml::sfml
+# ou selon les besoins : sfml-system sfml-window sfml-graphics ...
+)
