@@ -12,13 +12,12 @@ include (build/conan_toolchain.cmake)
 
 find_package(boost REQUIRED)
 find_package(GTest REQUIRED)
+find_package(SFML 2.6 REQUIRED COMPONENTS system window graphics)
 
 enable_testing()
 
+add_subdirectory(src)
 
 
-add_executable(main_exe main.cpp)
 
-target_link_libraries(main_exe
-PRIVATE gtest::gtest
-)
+
