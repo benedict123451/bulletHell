@@ -8,6 +8,16 @@ set(CMAKE_CXX_STANDARD 23)
 #    --build=missing
  #   -of ${CMAKE_SOURCE_DIR}/build
 #)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/assets
+DESTINATION .
+FILES_MATCHING
+PATTERN "*.*")
+
+add_custom_target(copy_assets_to_runtime ALL
+COMMAND ${CMAKE_COMMAND} --install . --prefix
+${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/release
+COMMENT "Installing assets to runtime directory"
+)
 include (build/conan_toolchain.cmake)
 
 find_package(boost REQUIRED)
